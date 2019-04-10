@@ -1,6 +1,8 @@
 # IC Imaging Control in Python
 This project forked from [TheImagingSource/IC-Imaging-Control-Samples](https://github.com/TheImagingSource/IC-Imaging-Control-Samples).
 
+![image](https://github.com/elerac/IC-Imaging-Control-Samples/blob/manuscript/IC-camera.jpg)
+
 # Environment
 * Windows
 * Python
