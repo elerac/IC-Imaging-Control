@@ -1,4 +1,4 @@
-# IC Imaging Control in Python
+# The Imaging Source camera control in Python
 This project forked from [TheImagingSource/IC-Imaging-Control-Samples](https://github.com/TheImagingSource/IC-Imaging-Control-Samples).
 
 ![image](https://github.com/elerac/IC-Imaging-Control-Samples/blob/manuscript/IC-camera.jpg)
@@ -10,7 +10,7 @@ This project forked from [TheImagingSource/IC-Imaging-Control-Samples](https://g
 * OpenCV
 
 # Usage
-## 1.Install IC camera driver
+## 1.Install The Imaging Source camera driver
 Install [driver](https://www.argocorp.com/software/DL/tis/driver.html).
 
 ## 2.Control camera in Python
