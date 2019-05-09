@@ -32,11 +32,13 @@ def capture(Camera, Exposure, Gain, average=1, HDR=False):
     def set_properties(Obj, Exposure, Gain):
         """ExposureとGainを設定する
         """
-        Obj.SetPropertySwitch("Exposure", "Auto", 0)
-        Obj.SetPropertyAbsoluteValue("Exposure","Value", Exposure)
-        
-        Obj.SetPropertySwitch("Gain", "Auto", 0)
-        Obj.SetPropertyValue("Gain","Value", Gain)
+        if Exposure>0:
+            Obj.SetPropertySwitch("Exposure", "Auto", 0)
+            Obj.SetPropertyAbsoluteValue("Exposure","Value", Exposure)
+            
+        if Gain>0:
+            Obj.SetPropertySwitch("Gain", "Auto", 0)
+            Obj.SetPropertyValue("Gain","Value", Gain)
     
     Camera.StartLive(0)
     set_properties(Camera, Exposure, Gain)
