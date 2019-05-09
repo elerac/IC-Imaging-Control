@@ -15,7 +15,7 @@ Install [driver](https://www.argocorp.com/software/DL/tis/driver.html).
 
 ## 2.Control camera in Python
 ```powershell
-git clone https://github.com/elerac/IC-Imaging-Control-Samples
+git clone https://github.com/elerac/IC-Imaging-Control.git
 ```
 
 ```powershell
