@@ -8,7 +8,7 @@
 import cv2
 import numpy as np
 
-def capture(Camera, Exposure, Gain, average=1, HDR=False):
+def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
     """
     Params:
         Camera: IC.TIS_CAM()で作成したインスタンス
@@ -31,6 +31,7 @@ def capture(Camera, Exposure, Gain, average=1, HDR=False):
     
     def set_properties(Obj, Exposure, Gain):
         """ExposureとGainを設定する
+        値が0以下なら前回の設定が引き継がれる
         """
         if Exposure>0:
             Obj.SetPropertySwitch("Exposure", "Auto", 0)
