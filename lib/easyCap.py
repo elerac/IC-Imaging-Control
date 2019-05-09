@@ -64,7 +64,8 @@ def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
         gain_ref = Camera.GetPropertyValue("Gain", "Value")
 
         #Exposureのテーブルを作成
-        exposure_table = np.array([exposure_ref*0.5, exposure_ref, exposure_ref*2.0], dtype=np.float32)
+        #exposure_table = np.array([exposure_ref*0.5, exposure_ref, exposure_ref*2.0], dtype=np.float32)
+        exposure_table = np.array([exposure_ref*0.25, exposure_ref*0.5, exposure_ref, exposure_ref*2.0, exposure_ref*4.0], dtype=np.float32)
         N = len(exposure_table)
         img_list = []
         for i in range(N):
