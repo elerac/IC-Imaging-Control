@@ -13,7 +13,7 @@ if Camera.IsDevValid() != 1:
 
 #Capture Start
 while True:
-    img_cap = easyCap.capture(Camera, Exposure=0.0333, Gain=16)
+    img_cap = easyCap.capture(Camera)
 
     cv2.imshow("cap", img_cap)
     key = cv2.waitKey(10)
