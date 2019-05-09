@@ -1,7 +1,5 @@
 import tisgrabber as IC
-from lib import easyCap
 import cv2
-import numpy as np
 
 #Create the camera object
 Camera = IC.TIS_CAM()
