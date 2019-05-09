@@ -1,5 +1,5 @@
 import tisgrabber as IC
-from lib import easyCap as *
+from lib import easyCap
 import cv2
 import numpy as np
 
@@ -28,7 +28,7 @@ if wb_auto==0:
 
 #Capture Start
 while True:
-	img_cap = capture(Camera)
+	img_cap = easyCap.capture(Camera)
 
 	cv2.imshow("cap", img_cap)
 	key = cv2.waitKey(10)
