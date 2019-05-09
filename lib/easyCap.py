@@ -8,12 +8,12 @@
 import cv2
 import numpy as np
 
-def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
+def capture(Camera, Exposure, Gain, average=1, HDR=False):
     """
     Params:
         Camera: IC.TIS_CAM()で作成したインスタンス
-        Exposure: 露光時間（引数で入力されない場合Autoになる）
-        Gain: ゲイン（引数で入力されない場合Autoになる）
+        Exposure: 露光時間
+        Gain: ゲイン
         average: 複数枚撮影の枚数（引数で入力されない場合ワンショットになる）
         HDR: Trueにすると，露光時間を変えて複数枚撮影しDebevecの手法でHDR合成する(デフォルトではFalse)
     """
@@ -31,20 +31,12 @@ def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
     
     def set_properties(Obj, Exposure, Gain):
         """ExposureとGainを設定する
-        Exposureが0の場合Autoに設定
-        Gainが0の場合Autoに設定
         """
-        if Exposure==0:
-            Obj.SetPropertySwitch("Exposure", "Auto", 1)
-        else:
-            Obj.SetPropertySwitch("Exposure", "Auto", 0)
-            Obj.SetPropertyAbsoluteValue("Exposure","Value", Exposure)
-            
-        if Gain==0:
-            Obj.SetPropertySwitch("Gain", "Auto", 1)
-        else:
-            Obj.SetPropertySwitch("Gain", "Auto", 0)
-            Obj.SetPropertyValue("Gain","Value", Gain)
+        Obj.SetPropertySwitch("Exposure", "Auto", 0)
+        Obj.SetPropertyAbsoluteValue("Exposure","Value", Exposure)
+        
+        Obj.SetPropertySwitch("Gain", "Auto", 0)
+        Obj.SetPropertyValue("Gain","Value", Gain)
     
     Camera.StartLive(0)
     set_properties(Camera, Exposure, Gain)
