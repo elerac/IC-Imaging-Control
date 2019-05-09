@@ -19,14 +19,14 @@ if Camera.IsDevValid() != 1:
 #Capture Start
 while True:
     #HDR capture
-    hdr = easyCap.capture(Camera, ExposureTime=0.0333, GainValue=16, average=2, HDR=True)
+    hdr = easyCap.capture(Camera, Exposure=0.0333, Gain=16, average=2, HDR=True)
     tonemap = cv2.createTonemapDurand(gamma=2.2)
     res = tonemap.process(hdr.copy())
     res_8bit = np.clip(res*255, 0, 255).astype(np.uint8)
     img_hdr = res_8bit
 
     #LDR capture
-    img_ldr = easyCap.capture(Camera, ExposureTime=0.0333, GainValue=16, average=1, HDR=False)
+    img_ldr = easyCap.capture(Camera, Exposure=0.0333, Gain=16, average=1, HDR=False)
 
     cv2.imshow("ldr", img_ldr)
     cv2.imshow("hdr", img_hdr)
