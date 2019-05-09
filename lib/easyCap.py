@@ -46,11 +46,11 @@ def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
             Obj.SetPropertySwitch("Gain", "Auto", 0)
             Obj.SetPropertyValue("Gain","Value", Gain)
     
+    Camera.StartLive(0)
     set_properties(Camera, Exposure, Gain)
     if HDR==False:
         """通常撮影モード
         """
-        Camera.StartLive(0)
         img = average_shot(Camera, average)
         Camera.StopLive()
         return img
@@ -69,7 +69,6 @@ def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
         img_list = []
         for i in range(N):
             set_properties(Camera, exposure_table[i], gain_ref)
-            Camera.StartLive(0)
             img = average_shot(Camera, average)
             Camera.StopLive()
             img_list.append(img)
