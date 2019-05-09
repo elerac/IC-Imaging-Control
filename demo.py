@@ -17,22 +17,28 @@ if Camera.IsDevValid() != 1:
 	exit()
 
 #Property Setting
-#Camera.SetPropertySwitch("Exposure", "Auto", exposure_auto)
-#Camera.SetPropertySwitch("Gain", "Auto", gain_auto)
-wb_auto = 1
-Camera.SetPropertySwitch("WhiteBalance", "Auto", wb_auto)
-if wb_auto==0:	
-	Camera.SetPropertyValue("WhiteBalance","White Balance Red", 72)
-	Camera.SetPropertyValue("WhiteBalance","White Balance Green", 64)
-	Camera.SetPropertyValue("WhiteBalance","White Balance Blue", 112)
+Camera.SetPropertySwitch("Exposure", "Auto", 0)
+Camera.SetPropertyAbsoluteValue("Exposure", "Value", 0.303)
+
+Camera.SetPropertySwitch("Gain", "Auto", 0)
+Camera.SetPropertyValue("Gain", "Value", 10)
+
+Camera.SetPropertySwitch("WhiteBalance", "Auto", 0)
+Camera.SetPropertyValue("WhiteBalance","White Balance Red", 72)
+Camera.SetPropertyValue("WhiteBalance","White Balance Green", 64)
+Camera.SetPropertyValue("WhiteBalance","White Balance Blue", 112)
 
 #Capture Start
+Camera.StartLive(0)
 while True:
-	img_cap = easyCap.capture(Camera)
+    Camera.SnapImage()
+    img_cap = Camera.GetImage()
+    img_cap = cv2.flip(img_cap, 0)
 
-	cv2.imshow("cap", img_cap)
-	key = cv2.waitKey(10)
-	if key == ord("q"):
-		break
-   
+    cv2.imshow("cap", img_cap)
+    key = cv2.waitKey(10)
+    if key == ord("q"):
+        break
+
+Camera.StopLive()
 cv2.destroyAllWindows()
