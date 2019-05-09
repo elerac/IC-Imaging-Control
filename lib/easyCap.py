@@ -5,6 +5,8 @@
         Exposureの設定，Gainの設定，複数枚撮影によるノイズ低減，簡易HDR
 
 """
+import cv2
+import numpy as np
 
 def capture(Camera, Exposure=0, Gain=0, average=1, HDR=False):
     """
