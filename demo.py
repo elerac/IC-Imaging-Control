@@ -19,7 +19,7 @@ Camera.SetPropertySwitch("Exposure", "Auto", 0)
 Camera.SetPropertyAbsoluteValue("Exposure", "Value", 0.303)
 
 Camera.SetPropertySwitch("Gain", "Auto", 0)
-Camera.SetPropertyValue("Gain", "Value", 10)
+Camera.SetPropertyValue("Gain", "Value", 16)
 
 Camera.SetPropertySwitch("WhiteBalance", "Auto", 0)
 Camera.SetPropertyValue("WhiteBalance","White Balance Red", 72)
