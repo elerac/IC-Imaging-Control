@@ -19,5 +19,5 @@ git clone https://github.com/elerac/IC-Imaging-Control-Samples
 ```
 
 ```powershell
-python demo.py
+python easyCapture.py
 ```
